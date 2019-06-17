@@ -202,5 +202,4 @@ const bindEventListeners =function() {
 export { bindEventListeners };
 export { render };
 
-
-  // This object contains the only exposed methods from this module:
+// This object contains the only exposed methods from this module:

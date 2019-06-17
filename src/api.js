@@ -75,6 +75,6 @@ const api = {
       method: 'DELETE'
     });
   }
-}
+};
 
 export { api };
