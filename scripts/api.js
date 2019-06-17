@@ -1,7 +1,5 @@
-'use strict';
-// eslint-disable-next-line no-unused-vars
-const api = (function(){
-  const BASE_URL = 'https://thinkful-list-api.herokuapp.com/rich';
+const api = {
+  BASE_URL : 'https://thinkful-list-api.herokuapp.com/rich',
 
   /**
    * listApiFetch - Wrapper function for native `fetch` to standardize error handling. 
@@ -11,7 +9,7 @@ const api = (function(){
    *                    - reject on non-2xx and non-JSON response with 
    *                      Object { code: Number, message: String }
    */
-  const listApiFetch = function(...args) {
+  listApiFetch: function(...args) {
     // setup var in scope outside of promise chain
     let error;
     return fetch(...args)
@@ -44,13 +42,13 @@ const api = (function(){
         // otherwise, return the json as normal resolved Promise
         return data;
       });
-  };
+  },
 
-  const getItems = function() {
+  getItems: function() {
     return listApiFetch(BASE_URL + '/items');
-  };
+  },
 
-  const createItem = function(name) {
+  createItem: function(name) {
     const newItem = JSON.stringify({ name });
     return listApiFetch(BASE_URL + '/items', {
       method: 'POST',
@@ -59,9 +57,9 @@ const api = (function(){
       },
       body: newItem
     });
-  };
+  },
 
-  const updateItem = function(id, updateData) {
+  updateItem: function(id, updateData) {
     const newData = JSON.stringify(updateData);
     return listApiFetch(BASE_URL + '/items/' + id, {
       method: 'PATCH',
@@ -70,18 +68,13 @@ const api = (function(){
       },
       body: newData
     });
-  };
+  },
 
-  const deleteItem = function(id) {
+  deleteItem: function(id) {
     return listApiFetch(BASE_URL + '/items/' + id, {
       method: 'DELETE'
     });
-  };
+  }
+}
 
-  return {
-    getItems,
-    createItem,
-    updateItem,
-    deleteItem,
-  };
-}());
+export { api };

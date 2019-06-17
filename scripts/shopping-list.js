@@ -1,5 +1,5 @@
 import $ from 'jquery';
-inport { store } from './store';
+import { store } from './store';
 import { api } from './api';
 
 
@@ -57,7 +57,7 @@ function renderError() {
   }
 }
 
-export const render = function() {
+const render = function() {
   renderError();
 
   // Filter item list if store prop is true by item.checked === false
@@ -188,7 +188,7 @@ function handleCloseError() {
   });
 }
 
-export const bindEventListeners =function() {
+const bindEventListeners =function() {
   handleNewItemSubmit();
   handleItemCheckClicked();
   handleDeleteItemClicked();
@@ -198,5 +198,9 @@ export const bindEventListeners =function() {
   handleItemStartEditing();
   handleCloseError();
 };
+
+export { bindEventListeners };
+export { render };
+
 
   // This object contains the only exposed methods from this module:

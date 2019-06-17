@@ -1,4 +1,4 @@
-export const store = {
+const store = {
   items : [],
   error: null,
   hideCheckedItems: false,
@@ -37,3 +37,5 @@ export const store = {
     item.isEditing = isEditing;
   }
 };
+
+export { store };
