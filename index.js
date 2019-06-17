@@ -1,8 +1,9 @@
-import '../styles/index.css';
+import './index.css';
 import $ from 'jquery';
 import { api } from './api';
 import { bindEventListeners } from './shopping-list';
 import { render } from './shopping-list';
+import { store } from './store';
 
 $(document).ready(function() {
   bindEventListeners();

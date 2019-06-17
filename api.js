@@ -45,12 +45,12 @@ const api = {
   },
 
   getItems: function() {
-    return listApiFetch(BASE_URL + '/items');
+    return this.listApiFetch(this.BASE_URL + '/items');
   },
 
   createItem: function(name) {
     const newItem = JSON.stringify({ name });
-    return listApiFetch(BASE_URL + '/items', {
+    return this.listApiFetch(this.BASE_URL + '/items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ const api = {
 
   updateItem: function(id, updateData) {
     const newData = JSON.stringify(updateData);
-    return listApiFetch(BASE_URL + '/items/' + id, {
+    return this.listApiFetch(this.BASE_URL + '/items/' + id, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const api = {
   },
 
   deleteItem: function(id) {
-    return listApiFetch(BASE_URL + '/items/' + id, {
+    return this.listApiFetch(this.BASE_URL + '/items/' + id, {
       method: 'DELETE'
     });
   }
